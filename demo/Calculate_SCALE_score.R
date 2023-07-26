@@ -1,3 +1,5 @@
+.libPaths("/Users/mao/Desktop/G1/衰老/投稿/GR修改/benchmarking/Rpackages/")
+
 library(Seurat)
 library(ggplot2)
 library(ggpubr)
@@ -14,8 +16,8 @@ tissue <- readRDS("./data/facs-Aorta.rds")
 
 # ------------------------------------------------------------------------------
 # calculate SCALE scores
-aging_gene_down <- as.character(selected_aging_genes[[tissue_name]][1:50, "down"])
-aging_gene_up <- as.character(selected_aging_genes[[tissue_name]][1:50, "up"])
+aging_gene_down <- as.character(selected_aging_genes[, "down"])
+aging_gene_up <- as.character(selected_aging_genes[, "up"])
 aging_gene_down <- aging_gene_down[aging_gene_down %in% row.names(tissue@assays$RNA@counts)]
 down_counts <- length(aging_gene_down)
 aging_gene_up <- aging_gene_up[aging_gene_up %in% row.names(tissue@assays$RNA@counts)]
